@@ -47,12 +47,22 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
 const navbar = document.querySelectorAll("nav a");
-navbar[0].textContent = siteContent.nav["nav-item-1"];
-navbar[1].textContent = siteContent.nav["nav-item-2"];
-navbar[2].textContent = siteContent.nav["nav-item-3"];
-navbar[3].textContent = siteContent.nav["nav-item-4"];
-navbar[4].textContent = siteContent.nav["nav-item-5"];
-navbar[5].textContent = siteContent.nav["nav-item-6"];
+
+const navbarAuto = siteContent[Object.keys(siteContent)[0]];
+
+for (let i = 0; i < navbar.length; i++) {
+  navbar[i].textContent = navbarAuto[Object.keys(navbarAuto)[i]];
+}
+
+// navbar[0].textContent = siteContent.nav["nav-item-1"];
+// navbar[1].textContent = siteContent.nav["nav-item-2"];
+// navbar[2].textContent = siteContent.nav["nav-item-3"];
+// navbar[3].textContent = siteContent.nav["nav-item-4"];
+// navbar[4].textContent = siteContent.nav["nav-item-5"];
+// navbar[5].textContent = siteContent.nav["nav-item-6"];
+// navbar.forEach(
+// e => (e.textContent = siteContent[Object.keys(siteContent)[0][1]]
+
 //? navbar.forEach.style.color = "green";
 navbar[0].style.color = "red";
 navbar[1].style.color = "orange";
@@ -83,13 +93,37 @@ header.textContent = siteContent.cta.h1;
 const headerImg = document.getElementById("middle-img");
 headerImg.src = siteContent["main-content"]["middle-img-src"];
 
+const ctaImg = document.getElementById("cta-img");
+ctaImg.src = siteContent.cta["img-src"];
+
 const middleHeaders = document.querySelectorAll(".main-content h4");
 middleHeaders[0].textContent = siteContent["main-content"]["features-h4"];
 middleHeaders[1].textContent = siteContent["main-content"]["about-h4"];
 middleHeaders[2].textContent = siteContent["main-content"]["services-h4"];
 middleHeaders[3].textContent = siteContent["main-content"]["product-h4"];
 middleHeaders[4].textContent = siteContent["main-content"]["vision-h4"];
-middleHeaders[0].style.textAlign = "center";
+
+// const middleHeadersAuto = siteContent[Object.keys(middleHeadersAuto)[3]];
+
+// const middleHeaders = document.querySelectorAll(".main-content");
+// const middleHeaderAuto = siteContent[Object.keys(siteContent)[2]];
+
+// for (let i = 0; i < middleHeaders.length; i++) {
+//   for (let j = 0; j < 12; j += 2) {
+//     middleHeaders[i].textContent =
+//       middleHeaderAuto[Object.keys(middleHeaderAuto)[j]];
+//     console.log("i" + i);
+//     console.log("///");
+//     console.log("j" + j);
+//   }
+// }
+
+// for (let i = 0; i < 12; i += 2) {
+//   middleHeaders.forEach(
+//     e => (e.textContent = middleHeaderAuto[Object.keys(middleHeaderAuto)[4]])
+//   );
+//   console.log(i);
+// }
 
 // const middleHeadersArray = Array.prototype.slice.call(middleHeaders);
 
@@ -98,6 +132,7 @@ middleHeaders[0].style.textAlign = "center";
 // middleHeadersArray.forEach(e => (e.style.textAlign = "center"));
 
 middleHeaders.forEach(e => (e.style.color = "red"));
+middleHeaders.forEach(e => (e.style.textAlign = "center"));
 
 middleHeaders[0].style.color = "green";
 middleHeaders[2].style.color = "green";
@@ -109,6 +144,8 @@ middleContent[1].textContent = siteContent["main-content"]["about-content"];
 middleContent[2].textContent = siteContent["main-content"]["services-content"];
 middleContent[3].textContent = siteContent["main-content"]["product-content"];
 middleContent[4].textContent = siteContent["main-content"]["vision-content"];
+
+middleContent.forEach(e => (e.style.textAlign = "center"));
 
 const footerHead = document.querySelector(".contact h4");
 footerHead.textContent = siteContent.contact["contact-h4"];
